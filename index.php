@@ -1,9 +1,15 @@
 <?php
 date_default_timezone_set("Europe/Paris");
+require_once "./functions/classAutoLoader.php";
+spl_autoload_register("classAutoLoader");
 
-include "./functions/classAutoLoader.php";
-spl_autoload_register('classAutoLoader');
 
-$voiture = new Berline("citroen", "saxo");
+$toto = new Querie();
+if($result = $toto->selectMethod("SELECT * FROM t_admin"))
+{
+    Debug::dump($result);
+}
+else {
+    echo "erreur";
+}
 
-var_dump($voiture);
